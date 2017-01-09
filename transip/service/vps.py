@@ -1,3 +1,4 @@
+# pylint: disable=too-few-public-methods
 """ The connector to VPS related API calls """
 
 from transip.client import Client, MODE_RO, MODE_RW
@@ -44,6 +45,7 @@ class VpsService(Client):
         self.update_cookie(cookie)
         return self.soap_client.service.getCancellableAddonsForVps(vps_name)
 
+    # This function gives a signature error.
     # def order_vps(self, product_name, addons, operating_system_name, hostname):
     #     """ Order a VPS with optional Addons """
     #     cookie = self.build_cookie(mode=MODE_RW, method='orderVps', \
@@ -120,11 +122,12 @@ class VpsService(Client):
         self.update_cookie(cookie)
         return self.soap_client.service.removeVpsFromPrivateNetwork(vps_name, private_network_name)
 
-    def get_traffic_information_for_vps(self, vps_name):
-        """ Get Traffic information by vps_name for this contractPeriod """
-        cookie = self.build_cookie(mode=MODE_RO, method='getTrafficInformationForVps', parameters=[vps_name])
-        self.update_cookie(cookie)
-        return self.soap_client.service.getTrafficInformationForVps(vps_name)
+    # This function gives a type not found exception
+    # def get_traffic_information_for_vps(self, vps_name):
+    #     """ Get Traffic information by vps_name for this contractPeriod """
+    #     cookie = self.build_cookie(mode=MODE_RO, method='getTrafficInformationForVps', parameters=[vps_name])
+    #     self.update_cookie(cookie)
+    #     return self.soap_client.service.getTrafficInformationForVps(vps_name)
 
     def start(self, vps_name):
         """ Start a Vps """
