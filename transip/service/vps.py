@@ -1,4 +1,4 @@
-# pylint: disable=too-few-public-methods
+# pylint: disable=too-many-public-methods
 """ The connector to VPS related API calls """
 
 from transip.client import Client, MODE_RO, MODE_RW
